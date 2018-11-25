@@ -28,6 +28,8 @@ Sample Course Outline for the Datacamp Instructor Application
  * Learning Objective - Learner will learn how to accees freely available external weather data sources such as geographical to add value the existing IOT data set
 * Lesson 3.3 - External Data - Transportation, Demographic and Economic 
  * Learning objective: Learner will be able to apply to external weather data sources such as data from the USGS and Census Bureau to the existing dataset
+* Lesson 3.4 - Geographic Data
+  * Learning Objective - Laerner will be able to apply external data sets such as elevation and location for IOT analysis
 
 # Chapter 4 - The Climate Problem
 
