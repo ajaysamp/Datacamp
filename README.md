@@ -4,10 +4,10 @@ Sample Course Outline for the Datacamp Instructor Application
 
 * Lesson 1.1 - What is IOT?
   * Learning Objective: Learner will understand the basics of IOT and the challenges associated with storing and analyzing IOT data
-Lesson 1.2 - Big Data Analytics 
- Learning Objective: Learner will be introduced to the technologies available for big data analytics that will enable them to use the appropriate resources in real world applications
-Lesson 1.3 - ApacheSpark
- Learning Objective: Learner will understand the basics of Apache Spark and will be able to use pyspark to read and view data
+* Lesson 1.2 - Big Data Analytics 
+  * Learning Objective: Learner will be introduced to the technologies available for big data analytics that will enable them to use the appropriate resources in real world applications
+* Lesson 1.3 - ApacheSpark
+  * Learning Objective: Learner will understand the basics of Apache Spark and will be able to use pyspark to read and view data
  
 Chapter 2 - Exploratory Data Analysis
 
