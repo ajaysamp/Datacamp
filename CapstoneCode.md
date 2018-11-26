@@ -15,14 +15,14 @@ df.select('STATION').distinct().count()
 #note that each station should have 96 records per day. 
 station_records = df.groupby('STATION').agg(count('STATION').alias('Count'))
 
-#convert the data to a pandas dataframe. 
+#convert the data to a pandas dataframe.  
 station_records = station_records.toPandas()
 
-#sort the station records.  
+#sort the station records.   
 station_records = station_records.sort_values(by='Count',ascending=False)
 
 #plot the station with the top 10 records. 
-fig,ax = plt.subplots(figsize=(10,4))
+fig,ax = plt.subplots(figsize=(10,4)). 
 ax = sns.barplot(x='STATION',y='Count',data=station_records.iloc[0:9,]). 
 ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ','))). 
 plt.xticks(fontsize=12, fontweight='bold',rotation=90). 
@@ -39,22 +39,22 @@ selected_station = df.filter(col('STATION') == 'COOP:451759')
 #look at the summary statistics for the data.  
 selected_station.describe().show()
 
-#plot the QPCP for the selected station. 
+#plot the QPCP for the selected station.   
 fig,ax = plt.subplots(figsize=(6,4))
 ax = sns.boxplot(x = 'QPCP',data=selected_station.toPandas())
 plt.tight_layout()
 display(plt.show())
 
-#remove the outliers ion QGAG. 
+#remove the outliers ion QGAG.   
 selected_station = selected_station.filter((col('QPCP') > 0) & (col('QPCP') < 900))
 
-#plot QPCP after removing the outliers. 
+#plot QPCP after removing the outliers.   
 fig,ax = plt.subplots(figsize=(6,4))
 ax = sns.boxplot(x = 'QPCP',data=selected_station.toPandas())
 plt.tight_layout()
 display(plt.show())
 
- #plot the time series for the QPCP at the selected station. 
+ #plot the time series for the QPCP at the selected station.   
 fig,ax = plt.subplots(figsize=(12,6))
 sns.pointplot(data=selected_station.toPandas(),x="DATE_New", y='QPCP')
 plt.tight_layout()
