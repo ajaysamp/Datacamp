@@ -2,8 +2,7 @@ Sample code for the Capstone Project. The project is a simple exploratory analys
 
 Note that this is a sample code to give a general idea about the difficutly level. The actual project and dataset may change. However, the code and difficulty will be similar to what is shown here. This code was created on Databricks and will be adapted for Datacamp's native spark environment. 
 
-#read the data
-
+#read the data \n
 df = sqlContext.read.format('csv').options(header='true',inferSchema='true').load("dbfs:/FileStore/tables/PrecipData.csv")
 
 #convert the string  column DATE to timestamp and add a new column DATE_New
