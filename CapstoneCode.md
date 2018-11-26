@@ -5,13 +5,13 @@ Note that this is a sample code to give a general idea about the difficutly leve
 #read the data  
 df = sqlContext.read.format('csv').options(header='true',inferSchema='true').load("dbfs:/FileStore/tables/PrecipData.csv")
 
-#convert the string  column DATE to timestamp and add a new column DATE_New. 
+#convert the string  column DATE to timestamp and add a new column DATE_New  
 df = df.withColumn('DATE_New', unix_timestamp('DATE', "yyyyMMdd HH:mm").cast('timestamp'))
 
-#get the number of distinct stations. 
+#get the number of distinct stations   
 df.select('STATION').distinct().count()
 
-#check the length of record for each station and put it into a new data frame. 
+#check the length of record for each station and put it into a new data frame.  
 #note that each station should have 96 records per day. 
 station_records = df.groupby('STATION').agg(count('STATION').alias('Count'))
 
@@ -23,15 +23,15 @@ station_records = station_records.sort_values(by='Count',ascending=False)
 
 #plot the station with the top 10 records. 
 fig,ax = plt.subplots(figsize=(10,4))
-ax = sns.barplot(x='STATION',y='Count',data=station_records.iloc[0:9,])
-ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
-plt.xticks(fontsize=12, fontweight='bold',rotation=90)
-plt.yticks(fontweight='bold')
-plt.xlabel('')
-plt.ylabel('')
-plt.title('Station Record Count',fontsize = 14,fontweight='bold')
-plt.tight_layout()
-display(plt.show())
+ax = sns.barplot(x='STATION',y='Count',data=station_records.iloc[0:9,]). 
+ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ','))). 
+plt.xticks(fontsize=12, fontweight='bold',rotation=90). 
+plt.yticks(fontweight='bold'). 
+plt.xlabel(''). 
+plt.ylabel(''). 
+plt.title('Station Record Count',fontsize = 14,fontweight='bold'). 
+plt.tight_layout(). 
+display(plt.show()). 
 
 #select the station with the maximum number of records for further analysis. 
 selected_station = df.filter(col('STATION') == 'COOP:451759')
